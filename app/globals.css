@@ -3,19 +3,43 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F1F1F1;
+  --dark-background: #2E2E2E;
+  --lighter-background: #E0E0E0;
+  --foreground: #2E2E2E;
+  --anchor: #658594;
+  --anchor-alt: #C34043;
+  --anchor-visited: #C34043;
+  --anchor-visited-alt: #E82424;
+  --input-background: #F1F1F1;
+  --input-border: #D1D5DB;
+  --button-background: #6C7D57;
+  --button-hover: #7C8E69;
+  --button-border: #6C7D57;
+  --disabled: #D1D5DB;
+  --disabled-foreground: #9CA3AF;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #1F1F28;
+  --lighter-background: #363646;
+  --foreground: #DCD7BA;
+  --anchor: #658594;
+  --anchor-alt: #C34043;
+  --anchor-visited: #C34043;
+  --anchor-visited-alt: #E82424;
+  --input-background: #1f1f28;
+  --input-border: #54546d;
+  --button-background: #6a9589;
+  --button-hover: #76946a;
+  --button-border: #76946a;
+  --disabled: #54546d;
+  --disabled-foreground: #727169;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  transition: all 0.5s ease;
 }
