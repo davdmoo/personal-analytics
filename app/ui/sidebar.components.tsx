@@ -1,4 +1,4 @@
-import SidebarMenu from "./sidebar_menu_list.components"
+import SidebarMenu from "@/app/ui/sidebar_menu_list.components"
 
 // TODO: state management for expanded
 export default function Sidebar({ isExpanded }: { isExpanded: boolean }) {

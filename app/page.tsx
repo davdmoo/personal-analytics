@@ -1,27 +1,42 @@
+import SessionDurationCard from "@/app/ui/dashboard_card/session_duration_card.components"
+import ViewCountCard from "@/app/ui/dashboard_card/view_count_card.components"
+import VisitorCountCard from "@/app/ui/dashboard_card/visitor_count_card.components"
+import { Suspense } from "react"
+import BrowserSummaryCard from "./ui/summary/browser_summary.components"
+import DeviceSummaryCard from "./ui/summary/device_summary.components"
+import OsSummaryCard from "./ui/summary/os_summary.components"
+
 export default function Home() {
   return (
-    <div className="flex">
-      <div className="flex flex-row justify-center px-6 py-6 min-w-full space-x-4">
-        <div className="w-72 flex flex-col">
-          <div className="bg-black px-4 py-4">
-            <h2>Views</h2>
-            <p>1</p>
-          </div>
-        </div>
+    <div className="flex flex-col p-6">
+      <div className="flex flex-col md:flex-row lg:flex-row justify-center min-w-full md:space-x-2 lg:space-x-4">
+        <Suspense fallback={<p>Loading total views today..</p>}>
+          <ViewCountCard />
+        </Suspense>
 
-        <div className="w-72 flex flex-col">
-          <div className="bg-black px-4 py-4">
-            <h2>Visitors</h2>
-            <p>1</p>
-          </div>
-        </div>
+        <Suspense fallback={<p>Loading visitor count..</p>}>
+          <VisitorCountCard />
+        </Suspense>
 
-        <div className="w-72 flex flex-col">
-          <div className="bg-black px-4 py-4">
-            <h2>Visit duration</h2>
-            <p>0s</p>
-          </div>
-        </div>
+        <Suspense fallback={<p>Loading session duration..</p>}>
+          <SessionDurationCard />
+        </Suspense>
+      </div>
+
+      {/* Add chart components here */}
+
+      <div className="flex lg:flex-row md:flex-row flex-col">
+        <Suspense fallback={<p>Loading browser summary..</p>}>
+          <BrowserSummaryCard />
+        </Suspense>
+
+        <Suspense fallback={<p>Loading OS summary..</p>}>
+          <OsSummaryCard />
+        </Suspense>
+
+        <Suspense fallback={<p>Loading device summary..</p>}>
+          <DeviceSummaryCard />
+        </Suspense>
       </div>
     </div>
   )
